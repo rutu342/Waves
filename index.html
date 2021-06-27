@@ -1,0 +1,673 @@
+<html>
+<head>
+    <title> Waves </title>
+    <link rel="stylesheet" href="meditation.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:400,900' rel='stylesheet' type='text/css'>
+</head>
+<body class="body-class">
+    <center>
+    <h1 class="index-head">WAVES</h1>
+    </center>
+    <div class="content-container">
+        
+        <div class="navbar">
+            <img src='cursor.jpg' id="logo">
+            <br>
+            <span class = "nav-head"> An Online Meditation Platform </span>
+            <!-- <ul> 
+                <li> WAVES
+                    <ul>
+                        <li><a href="statistics.html"> STATS </a></li>
+                        <li><a href="about.html"> ABOUT </a></li>
+                        <li><a href="creators.html"> CREATORS </a></li>
+                    </ul>
+                </li>
+            </ul> -->
+            <nav>
+                <ul>
+                  <li onclick="location.href='index.html';">
+                    HOME
+                    <span></span><span></span><span></span><span></span>
+                  </li>
+                  <li onclick="location.href='about.html';">
+                    ABOUT
+                    <span></span><span></span><span></span><span></span>
+                  </li>
+                  <li onclick="location.href='creators.html';">
+                    CONTACT
+                    <span></span><span></span><span></span><span></span>
+                  </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <span id='ex-all-id'>Choose Your Excercises ...</span>
+            <table id="ex-options">
+                <tr>
+                  <td><div class="button non_select" onclick="toggle(this)">Breathing</div></td>
+                  <td><div class="button non_select" onclick="toggle(this)">Bent Pose</div></td>
+                  <td><div class="button non_select" onclick="toggle(this)">Boat Pose</div></td>
+                </tr>
+                <tr>
+                  <td><div class="button non_select" onclick="toggle(this)">Bow Pose</div></td>
+                  <td><div class="button non_select" onclick="toggle(this)">Cobra Stretch</div></td>
+                  <td><div class="button non_select" onclick="toggle(this)">Crow Pose</div></td>
+                </tr>
+                <tr>
+                    <td><div class="button non_select" onclick="toggle(this)">Dog Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Forward Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Height Posture</div></td>
+                </tr>
+                <tr>
+                    <td><div class="button non_select" onclick="toggle(this)">Locust Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Lotus Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Plough Pose</div></td>
+                </tr>
+                <tr>
+                    <td><div class="button non_select" onclick="toggle(this)">Tree Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Twisted Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Warrior Pose</div></td>
+                </tr>
+            </table> 
+
+            <div class="btn" onclick="goTimer()">
+                <svg width="277" height="62">
+                    <defs>
+                        <linearGradient id="grad1">
+                            <stop offset="0%" stop-color="#FF8282"/>
+                            <stop offset="100%" stop-color="#E178ED" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                </svg>
+                <span>START</span>
+            </div> 
+        </div>
+        
+        <div id="timer">
+            <div class="base-timer">
+                <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g class="base-timer__circle">
+                    <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+                        <path
+                            id="base-timer-path-remaining"
+                            stroke-dasharray="283"
+                            class="base-timer__path-remaining 0"
+                            d="
+                            M 50, 50
+                            m -45, 0
+                            a 45,45 0 1,0 90,0
+                            a 45,45 0 1,0 -90,0
+                            "
+                        ></path>
+                    </g>
+                </svg>
+                <span id="base-timer-label" class="base-timer__label">MEDITATE</span>
+            </div>
+            <span class="next-ex"> </span>
+        </div>
+    </div>
+
+    <script>
+        const ex_contents = {
+            "breathing": `
+                    <span id='ex-id'> Breathing Excercise </span>
+                    <ol class='steps'>
+                        <li>Sit in a comfortable position</li>
+                        <li>Close your eyes</li>
+                        <li>Breathe in from your left nostril while closing your right nostril from your thumb</li>
+                        <li>Breathe out from your right nostril while closing your left nostril with your middle and ring finger</li>
+                        <li>out from your left nostril while closing your right nostril with your thumb.</li> 
+                        <li>Repeat the complete process 20-30 times</li>
+                    </ol>
+                    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/ysv7YJD247A?start=68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `,
+            "bent pose": `
+                    <span id='ex-id'>Setu Bandhasana or Bend pose</span>
+                    <ol class='steps'>
+                        <li>Lie down flat on your back on a hard surface, preferably on a mat.Bend your knees and make sure to place your legs hip-width apart.</li>
+                        <li>Put your hands beside you with the palm facing downwards.Putting the pressure on the floor through your hands, lift your back.</li>
+                        <li>Lift such that your chin is touching your chest, without any movement or effort.Inhale and lift your torso is little up.</li>
+                        <li>Make sure your knees and ankles are aligned in a straight line. Your thighs should be parallel to the floor</li>
+                        <li>Hold on to your breath for a few seconds and release. Repeat the process a few times. </li>
+                    </ol>
+                    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/EZyBkVBUlG4?start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `,
+            "boat pose": `
+                    <span id='ex-id'> Naukasan or Boat pose</span>
+                    <ol class='steps'>
+                        <li>Begin in a seated position with your knees bent and your feet flat on the floor. Lift your feet off the floor. Keep your knees bent at first. Bring your shins parallel to the floor. This is half boat pose.  </li>
+                        <li>Your torso will naturally fall back, but do not let the spine round.Straighten your legs to a 45degree angle if you can do so without losing the integrity of your upper body. You want to keep your torso as upright as possible so that it makes a V shape with the legs.</li>
+                        <li>Roll your shoulders back and straighten your arms roughly parallel to the floor with your palms turned up. Do your best to balance on the sit bones, but it's normal if you are resting slightly behind them. Focus on lifting your chest to support the balance. </li>
+                        <li>Stay for at least five breaths. Release your legs on an exhale. Then inhale and sit up. </li>
+                    </ol>
+                    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/I1w5juwW1d8?start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `,
+            "bow pose": `
+                <span id='ex-id'>Dhanurasana or Bow Pose</span>
+                <ol class='steps'>
+                    <li>Lie down on your stomach with your feet slightly apart, almost parallel to your hips, and place your arms on the side of your body.</li>
+                    <li>Slowly, fold your knees up and hold your ankles with your hands. Breathe in and lift your chest off the ground and pull your legs up and stretch it out. You should feel the stretch on your arms and thighs.</li>
+                    <li>Hold the pose for 12-15 seconds, paying attention to your breath as you take long, deep ones.</li>
+                    <li>Slowly bring your chest and legs back to the ground, release your hold on the ankles, and relax with your hands on the side. Repeat for a few sets</li>
+                    <li>As you breathe in, take the left leg back and bring the whole body in a straight line and keep your arms perpendicular to the floor.</li>
+                </ol>
+                <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/m24yVj3fuCY?start=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `,
+            "cobra stretch": `
+                <span id='ex-id'>Bhujangasana Or Cobra Strech </span>
+                <ol class='steps'>
+                    <li>Place your palms flat on the ground directly under your shoulders. Bend your elbows straight back and hug them into your sides.</li>
+                    <li>Pause for a moment looking straight down at your mat with your neck in a neutral position. Anchor your pubic bone to the floor.</li>
+                    <li>Inhale to lift your chest off the floor. Roll your shoulders back and keep your low ribs on the floor. Make sure your elbows continue hugging your sides. Don't let them wing out to either side.Keep your neck neutral. Don’t crank it up. Your gaze should stay on the floor.</li>
+                </ol>
+                <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/75eZwVHIL-U?start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `,
+            "crow pose": `
+                <span id='ex-id'>Kakasana or Crow Pose</span>
+                <ol class='steps'>
+                    <li>Bend your knees slightly so that you can bring your palms flat on the floor about shoulder's distance apart.Plant your palms firmly on the mat about a foot in front of your feet. Spread your fingers wide and press into the top joint of each finger.</li>
+                    <li>Bend your elbows straight back. Don't bend them into full Chaturanga arms, but head in that direction.Come up onto the balls of your feet and open your knees so that they line up with your upper arms.</li>
+                    <li>Place your knees on the backs of your upper arms.Begin to bring your weight forward into your hands, lifting your head as you go.</li> 
+                    <li>Come up onto your tiptoes, then lift one foot and then the other off the floor.Engage the inner thighs for support while keeping the knees on the arms.</li>
+                    <li>Hug your feet toward your butt.Focus on the feeling of the body lifting. Avoid sinking into the pose, which can dump weight into the shoulders.</li> 
+                    <li>To come out, exhale and transfer your weight back until your feet come back to the floor.</li>
+                </ol>
+                <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/BiYyOx9x7ls?start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `,
+            "dog pose": `
+                <span id='ex-id'> Adho Mukha Shvanasana or dog pose</span>
+                <ol class='steps'>
+                    <li>Come onto your hands and knees, with your hands shoulder-width apart and your knees hip-width apart. Press the inner triads of both hands firmly into the mat. Turn the eyes of your elbows toward each other and align your shoulders over your wrists. Your knees should be behind your sitting bones to maximize length in your torso and spine when you move into Down Dog .</li>
+                    <li>For a few breaths, arch and round your spine, simultaneously moving your head and tail like you did in Cat-Cow Pose.From a Cat tilt, curl your toes under. On an exhalation, slowly lift your knees off the floor, bringing them in line with your ankles. Keep your knees bent and stretch your arms intensely to lengthen your torso. Press the mat away from you and open your upper, or armpit, chest. Lift your sitting bones to tilt the top of your pelvis forward and maintain the natural curves of your spine. If your hamstrings are stiff, this is a good place to stay—remaining here opens the shoulders and wakes up the spine without putting pressure on your lower back.</li>
+                    <li>If you are moving deeper into the pose, slowly straighten both legs and walk your feet forward a little. Your sitting bones should be close to centered between your wrists and ankles. Make sure your lower back doesn’t round and that you can still maintain the lift of your sitting bones and the curves of your spine. Extend your arms fully and keep your lower ribs moving toward your spine to avoid low-back overarching and compression. Descend your heels even more as you engage your quadriceps. Maintain Mula Bandha and breathe freely through your nose. Stay for 20–25 breaths before coming down to rest in Balasana (Child’s Pose).</li>
+                </ol>
+                <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/XizUxWaYlVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `,
+            "forward pose": `
+                <span id="ex-id"> Uttanasana or Forward bent pose</span>
+                <ol class="steps">
+                <li>
+                    Stand straight with your legs hip-distance apart and arms on your
+                    sides. Now, spread your legs wide-apart
+                </li>
+                <li>
+                    Relax the body in Mountain Pose taking a few deep breaths. Exhale
+                    and move your torso forward from the hips, not the waist.
+                </li>
+                <li>Continue to bend till your hands touch your feet.</li>
+                <li>
+                    Stretch your hips and bend further (without straining the body).
+                    Place the palm of your hands by the side of your feet.
+                </li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/0kOOvLPN23Q?start=5"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen ></iframe>
+            `,
+            "height posture": `
+                <span id="ex-id"> Tadasan or Increase Height Posture </span>
+                <ol class="steps">
+                <li>
+                    Stand erect on the floor with your legs, waist and neck aligned in a
+                    straight line. Keep both the feet together, hands on the sides and
+                    palm facing the thighs.
+                </li>
+                <li>
+                    While inhaling, raise both of your arms together in the upward
+                    direction, parallel to each other.- Slowly lift your heels and stand
+                    on your toes. Stretch your body upward as far as possible. Keep your
+                    legs and arms straight.
+                </li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/t1e4QbaeH6c?start=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            `,
+            "locust pose": `
+                <span id="ex-id"> Shalabhasana or Locust pose</span>
+                <ol class="steps">
+                    <li>
+                        Begin lying on your stomach with your arms at your sides. Rest your
+                        forehead on the mat.
+                    </li>
+                    <li>Inhale and raise your head to look forward.</li>
+                    <li>
+                        Use your inner thighs to lift your legs up toward the ceiling.
+                    </li>
+                    <li>Keep your chest lifted as you widen across your collarbones</li>
+                    <li>Gaze at your cheeks. Hold for up to one minute</li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/-1gHGOSYujY?start=16"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            `,
+            "lotus pose": `
+                <span id="ex-id">Padmasana or Lotus Pose</span>
+                <ol class="steps">
+                    <li>
+                        Sit on the floor or on a mat with legs stretched out in front of you
+                        while keeping the spine erect.
+                    </li>
+                    <li>
+                        Bend the right knee and place it on the left thigh. Make sure that
+                        the sole of the feet point upward and the heel is close to the
+                        abdomen.
+                    </li>
+                    <li>
+                        Now, repeat the same step with the other leg. With both the legs
+                        crossed and feet placed on opposite thighs, place your hands on the
+                        knees in mudra position.
+                    </li>
+                    <li>
+                        Keep the head straight and spine erect. Hold and continue with
+                        gentle long breaths in and out.
+                    </li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/w_j4lnfRC38?start=3"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            `,
+            "plough pose": `
+                <span id="ex-id"> Halasana Or Plough Pose</span>
+                <ol class="steps">
+                <li>
+                    Balance the whole weight on the shoulder blade, shift both the hands
+                    over the head, join the fingers and hold the head with it and relax
+                    the elbows on the floor.
+                </li>
+                <li>Try to remain in the position till the count of 100.</li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/qpuY0jXimtQ?start=2"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            `,
+            "tree pose": `
+                <span id="ex-id"> Vriksasana or Tree Pose </span>
+                <ol class="steps">
+                <li>
+                    Stand tall and erect in Tadasana (mountain pose) with your arms by
+                    your side and shoulders relaxed.
+                </li>
+                <li>
+                    Bend your right leg and place your right foot high up on your left
+                    thigh.
+                </li>
+                <li>
+                    The sole of your right foot should be placed flat and firmly on the
+                    inner side of the thigh. And your left leg should be straight.
+                </li>
+                <li>
+                    Once you have found your balance, take a deep breath and gracefully
+                    raise your arms over your head. Bring your palms together i n
+                    ‘namaste’ mudra hands folded.
+                </li>
+                <li>
+                    Look straight ahead at a distant object, with a steady gaze. Make
+                    sure your spine in straight, and keep taking long deep breaths.
+                    Relax the body more and more each time you exhale, and try to hold
+                    the pose for as long as possible.
+                </li>
+                <li>
+                    Then slowly exhale, bring down your hands from the side of your body
+                    and gently release the right leg.
+                </li>
+                <li>
+                    Stand tall and straight as you did before you started, and repeat
+                    the pose with your left leg while your right leg rests on the floor.
+                </li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/gFLlSIdlrtc"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            `,
+            "twisted pose": `
+                <span id="ex-id"> Vakrasana Or Twisted Pose</span>
+                <ol class="steps">
+                <li>
+                    Sit on the ground with legs stretched out. Bend left leg from the
+                    knee and place the foot beside the right knee.
+                </li>
+                <li>
+                    Keep the spine straight and twist the waist towards the left as you
+                    exhale. Bring the right arm towards the left side foot in such a way
+                    that the outer side of the right arm touches the outer side of the
+                    left leg, and place the right hand beside the left foot.
+                </li>
+                <li>
+                    Take left arm back and keep the palm on the ground in such a way
+                    that the trunk is kept erect with a proper twist. Repeat from the
+                    opposite side.
+                </li>
+                <li>This is one round. Do 2 to 3 rounds.</li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/rtzeaxl2ykM?start=13"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            `,
+            "warrior pose": `
+                <span id="ex-id"> Virabhadrasana or Warrior pose </span>
+                <ol class="steps">
+                <li>
+                    Stand straight with your legs hip-distance apart and arms on your
+                    sides. Now, spread your legs wide-apart
+                </li>
+                <li>
+                    Turn your left feet out to face the left side of the mat. The other
+                    feet will turn inward to make a 45 Degree angle.
+                </li>
+                <li>
+                    Twist your body to left completely. Go forward on your left knee
+                    making a 90 Degree angle; make sure that your knee doesn't cross
+                    over the toe.
+                </li>
+                <li>
+                    Let the other leg stretch properly- Now go into a Namaste position,
+                    and taking our arms up above your head, look up, arch your back a
+                    bit and stretch.- Hold for 10 seconds and repeat on the other side.
+                </li>
+                </ol>
+                <iframe
+                id="video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/lCIr9AySxv8"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            `,
+            "reset": `
+                <span id='ex-all-id'>Choose Your Excercises ...</span>
+                <table id="ex-options">
+                    <tr>
+                    <td><div class="button non_select" onclick="toggle(this)">Breathing</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Bent Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Boat Pose</div></td>
+                    </tr>
+                    <tr>
+                    <td><div class="button non_select" onclick="toggle(this)">Bow Pose</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Cobra Stretch</div></td>
+                    <td><div class="button non_select" onclick="toggle(this)">Crow Pose</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="button non_select" onclick="toggle(this)">Dog Pose</div></td>
+                        <td><div class="button non_select" onclick="toggle(this)">Forward Pose</div></td>
+                        <td><div class="button non_select" onclick="toggle(this)">Height Posture</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="button non_select" onclick="toggle(this)">Locust Pose</div></td>
+                        <td><div class="button non_select" onclick="toggle(this)">Lotus Pose</div></td>
+                        <td><div class="button non_select" onclick="toggle(this)">Plough Pose</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="button non_select" onclick="toggle(this)">Tree Pose</div></td>
+                        <td><div class="button non_select" onclick="toggle(this)">Twisted Pose</div></td>
+                        <td><div class="button non_select" onclick="toggle(this)">Warrior Pose</div></td>
+                    </tr>
+                </table> 
+
+                <div class="btn" onclick="goTimer()">
+                    <svg width="277" height="62">
+                        <defs>
+                            <linearGradient id="grad1">
+                                <stop offset="0%" stop-color="#FF8282"/>
+                                <stop offset="100%" stop-color="#E178ED" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                    </svg>
+                    <span>START</span>
+                </div>`
+        }
+
+        function toggle(ele) {
+            if (ele.getAttribute("class") === "button non_select") {
+                ele.setAttribute("class", "button select");
+            } else {
+                ele.setAttribute("class", "button non_select");
+            } 
+        }
+
+        function goTimer() {
+
+            const ding = "https://cdn.discordapp.com/attachments/835173072851566603/835842758219530281/The_Price_is_Right_Ding_-_Gaming_Sound_Effect_HD.mp3";
+            const bgAudio = new Audio("https://cdn.pixabay.com/download/audio/2020/11/10/audio_547ebbf828.mp3");
+            bgAudio.loop = true;
+            const FULL_DASH_ARRAY = 283;
+            const WARNING_THRESHOLD = 10;
+            const ALERT_THRESHOLD = 5;
+
+            const COLOR_CODES = {
+                info: {
+                    color: "green"
+                },
+                warning: {
+                    color: "orange",
+                    threshold: WARNING_THRESHOLD
+                },
+                alert: {
+                    color: "red",
+                    threshold: ALERT_THRESHOLD
+                }
+            };
+
+            const perEx = 120;
+
+            const ex_count = document.getElementsByClassName("button select");
+            let have = [];
+            for (let i = 0; i < ex_count.length; ++ i)
+                have.push(ex_count[i].innerHTML.toLowerCase());
+            console.log(have);
+            if (have.length === 0) return;
+            const TIME_LIMIT = perEx * have.length;
+            let timePassed = 0;
+            let timeLeft = TIME_LIMIT;
+            let timerInterval = null;
+            let remainingPathColor = COLOR_CODES.info.color;
+
+            const reset = `
+            <div class="base-timer">
+                <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g class="base-timer__circle">
+                    <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+                        <path
+                            id="base-timer-path-remaining"
+                            stroke-dasharray="283"
+                            class="base-timer__path-remaining 0"
+                            d="
+                            M 50, 50
+                            m -45, 0
+                            a 45,45 0 1,0 90,0
+                            a 45,45 0 1,0 -90,0
+                            "
+                        ></path>
+                    </g>
+                </svg>
+                <span id="base-timer-label" class="base-timer__label">MEDITATE</span>
+            </div>
+            <span class="next-ex"> </span>
+            `
+
+            document.getElementById("timer").innerHTML = `
+            <div class="base-timer">
+                <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g class="base-timer__circle">
+                    <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+                        <path
+                            id="base-timer-path-remaining"
+                            stroke-dasharray="283"
+                            class="base-timer__path-remaining ${remainingPathColor}"
+                            d="
+                            M 50, 50
+                            m -45, 0
+                            a 45,45 0 1,0 90,0
+                            a 45,45 0 1,0 -90,0
+                            "
+                        ></path>
+                    </g>
+                </svg>
+                <span id="base-timer-label" class="base-timer__label">${formatTime(timeLeft)}</span>
+            </div>
+            <span class="next-ex"> </span>
+            `;
+
+            let prev = 0;
+            console.log(have[prev]);
+            let data = ex_contents[have[prev]];
+            document.getElementsByClassName("content")[0].innerHTML = data; 
+            if (prev + 1 < have.length) {
+                let next_ex = `Up Next in ${perEx}s<br><br>` +  have[prev + 1].toUpperCase();
+                document.getElementsByClassName("next-ex")[0].innerHTML = next_ex;
+            } else {
+                document.getElementsByClassName("next-ex")[0].innerHTML = "Last One To Go!";
+            }
+
+            let logo = document.getElementById("logo");
+            logo.setAttribute("class", "meditate-logo");
+
+            bgAudio.play();
+            startTimer();
+
+            function onTimesUp() {
+                clearInterval(timerInterval);
+                document.getElementById("timer").innerHTML = reset;
+                document.getElementsByClassName("content")[0].innerHTML = ex_contents["reset"];
+                document.getElementsByClassName("next-ex")[0].innerHTML = "";
+                let audio = new Audio(ding);
+                audio.volume = 0.3;
+                audio.play();
+                bgAudio.pause();
+                bgAudio.currentTime = 0;
+                let logo = document.getElementById("logo");
+                logo.setAttribute("class", "");
+            }
+
+            function startTimer() {
+                timerInterval = setInterval(() => {
+                    timePassed = timePassed += 1;
+                    timeLeft = TIME_LIMIT - timePassed;
+                    document.getElementById("base-timer-label").innerHTML = formatTime(
+                    timeLeft
+                    );
+                    
+                    if ((Math.floor(timePassed / perEx) !== prev) && (timeLeft !== 0)) {
+                        prev = Math.floor(timePassed / perEx);
+                        let data = ex_contents[have[prev]];
+                        document.getElementsByClassName("content")[0].innerHTML = data;  
+                        let audio = new Audio(ding);
+                        audio.volume = 0.3;
+                        audio.play();
+                    }
+
+                    if (prev + 1 < have.length) {
+                        let next_ex = `Up Next in ${perEx - timePassed % perEx}s<br><br>` +  have[prev + 1].toUpperCase();
+                        document.getElementsByClassName("next-ex")[0].innerHTML = next_ex;
+                    } else {
+                        document.getElementsByClassName("next-ex")[0].innerHTML = "Last One To Go!";
+                    }
+                
+                    setCircleDasharray();
+                    setRemainingPathColor(timeLeft);
+
+                    if (timeLeft === 0) {
+                        onTimesUp();
+                    }
+                }, 1000);
+            }
+
+            function formatTime(time) {
+                const minutes = Math.floor(time / 60);
+                let seconds = time % 60;
+                if (seconds < 10) {
+                    seconds = `0${seconds}`;
+                }
+                return `${minutes}:${seconds}`;
+            }
+
+            function setRemainingPathColor(timeLeft) {
+                const { alert, warning, info } = COLOR_CODES;
+                if (timeLeft <= alert.threshold) {
+                    document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.remove(warning.color);
+                    document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.add(alert.color);
+                } else if (timeLeft <= warning.threshold) {
+                    document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.remove(info.color);
+                    document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.add(warning.color);
+                }
+            }
+
+            function calculateTimeFraction() {
+                const rawTimeFraction = timeLeft / TIME_LIMIT;
+                return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+            }
+
+            function setCircleDasharray() {
+                const circleDasharray = `${(
+                    calculateTimeFraction() * FULL_DASH_ARRAY
+                ).toFixed(0)} 283`;
+                document
+                    .getElementById("base-timer-path-remaining")
+                    .setAttribute("stroke-dasharray", circleDasharray);
+            }
+        }
+    </script>
+</body>
+</html>
