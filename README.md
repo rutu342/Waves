@@ -13,9 +13,12 @@ I learned a lot of css tricks to make the page more appealing and basics of java
 
 🔮 What's next for Waves
  I am thinking about implementing more features like tracking your progress, potentially a journaling feature, and a sleep tracker
+ here is the link:https://wavesmedirelax.qoom.space/
+ 
+ 
+ ![Screenshot (13)](https://user-images.githubusercontent.com/82323997/123538711-d2926900-d753-11eb-894f-2d2f2e21a3da.png)
+
  
  
  
- 
- 
- 
+![Screenshot (14)](https://user-images.githubusercontent.com/82323997/123538778-02417100-d754-11eb-8334-47462d86a102.png)
